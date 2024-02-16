@@ -1,0 +1,2 @@
+Do requests.$setCallbackForm('callbackSample_setCallbackForm','$callback')
+Do requests.$fetch('https://api.ipify.org?format=json')

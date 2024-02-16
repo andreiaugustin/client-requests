@@ -1,0 +1,19 @@
+JavaScript:function shouldCallback() {
+JavaScript:    if (me.callbackMethod.length && me.callbackRemoteForm.length)
+JavaScript:        return true;
+JavaScript:    if (me.callbackInstance)
+JavaScript:        return true;
+JavaScript:    return false;
+JavaScript:}
+JavaScript:
+JavaScript:fetch(pURL)
+JavaScript:.then(data => {
+JavaScript:    if (shouldCallback())
+JavaScript:        return me.$doCallback(data, true)
+JavaScript:    me.$completed(data)
+JavaScript:})
+JavaScript:.catch(error => {
+JavaScript:    if (shouldCallback())
+JavaScript:        return me.$doCallback(error, false)
+JavaScript:    me.$error(error)
+JavaScript:})

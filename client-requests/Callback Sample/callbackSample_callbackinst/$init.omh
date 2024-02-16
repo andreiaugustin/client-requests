@@ -1,0 +1,2 @@
+Do requests.$callbackinst($cinst)
+Do requests.$fetch('https://api.ipify.org?format=json')

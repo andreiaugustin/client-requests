@@ -1,0 +1,59 @@
+{
+	"classtype": "kRemoteObject",
+	"omnisversion": "11.0",
+	"omnisbuild": 110036149,
+	"internalversion": 23,
+	"cvardefs": [
+
+	],
+	"ivardefs": [
+		{
+			"name": "callbackInstance",
+			"order": 4,
+			"type": "kItemref",
+			"subtype": "",
+			"sublen": 0
+		},
+		{
+			"name": "callbackMethod",
+			"order": 3,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 100000000,
+			"initval": "''"
+		},
+		{
+			"name": "callbackRemoteForm",
+			"order": 2,
+			"type": "kCharacter",
+			"subtype": "kSimplechar",
+			"sublen": 100000000,
+			"initval": "''"
+		},
+		{
+			"name": "me",
+			"order": 1,
+			"type": "kItemref",
+			"subtype": "",
+			"sublen": 0
+		}
+	],
+	"properties": {
+		"componenticon": 0,
+		"componentinfo": {
+
+		},
+		"componenttype": "kCompStoreHidden",
+		"createdate": "2024-02-16 22:25:56",
+		"desc": "",
+		"editor": "",
+		"editordata": "",
+		"external": false,
+		"issupercomponent": false,
+		"moddate": "2024-02-16 23:24:57",
+		"showascheckedout": false,
+		"userinfo": "",
+		"vcsrevision": 0,
+		"version": ""
+	}
+}

@@ -1,0 +1,19 @@
+[
+	{
+		"name": "$completed",
+		"order": 2,
+		"pvardefs": [
+			{
+				"name": "pData",
+				"order": 1,
+				"type": "kItemref",
+				"subtype": "",
+				"sublen": 0,
+				"param": 1
+			}
+		],
+		"lvardefs": [
+
+		]
+	}
+]
