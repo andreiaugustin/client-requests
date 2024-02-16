@@ -52,3 +52,5 @@ Do requests.$fetch('https://api.ipify.org?format=json')
 
 JavaScript:console.log(pData);
 ```
+
+Further examples are available in the library, in the **Callback Sample** and **Override Sample**.
