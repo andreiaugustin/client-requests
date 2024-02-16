@@ -6,14 +6,33 @@ JavaScript:        return true;
 JavaScript:    return false;
 JavaScript:}
 JavaScript:
+JavaScript:function parseResponse(response) {
+JavaScript:    if (!response.ok)
+JavaScript:        throw new Error(`HTTP error status: ${reponse.status}`);
+JavaScript:
+JavaScript:    const contentType = response.headers.get('content-type');
+JavaScript:
+JavaScript:    if (contentType.includes("application/json"))
+JavaScript:        return response.json();
+JavaScript:    else if (contentType.includes("text/html") || contentType.includes("text/plain"))
+JavaScript:        return response.text();
+JavaScript:    else if (contentType.includes("form-data"))
+JavaScript:        return response.formData();
+JavaScript:    else if (contentType.includes("blob"))
+JavaScript:        return response.blob();
+JavaScript:    else
+JavaScript:        throw new Error(`Unsupported content type: ${contentType}`);
+JavaScript:}
+JavaScript:
 JavaScript:fetch(pURL)
+JavaScript:.then(parseResponse)
 JavaScript:.then(data => {
 JavaScript:    if (shouldCallback())
-JavaScript:        return me.$doCallback(data, true)
+JavaScript:        return me.doCallback(data, true);
 JavaScript:    me.$completed(data)
 JavaScript:})
 JavaScript:.catch(error => {
 JavaScript:    if (shouldCallback())
-JavaScript:        return me.$doCallback(error, false)
+JavaScript:        return me.doCallback(error, false);
 JavaScript:    me.$error(error)
 JavaScript:})

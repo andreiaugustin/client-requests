@@ -1,1 +1,2 @@
+JavaScript:alert(`fetch() returned: ${pData.ip}`)
 JavaScript:console.log(pData);

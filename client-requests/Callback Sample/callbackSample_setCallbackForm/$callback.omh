@@ -1,1 +1,7 @@
-JavaScript:console.log(pData);
+If pSuccessful
+	JavaScript:alert(`fetch() returned: ${pData.ip}`)
+	JavaScript:console.log(pData);
+Else
+	JavaScript:alert(`fetch() error: ${pData}`)
+	JavaScript:console.log(pData);
+End If

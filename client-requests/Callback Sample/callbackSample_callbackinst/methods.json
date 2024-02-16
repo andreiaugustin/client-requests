@@ -40,18 +40,10 @@
 			{
 				"name": "pData",
 				"order": 1,
-				"type": "kCharacter",
-				"subtype": "kSimplechar",
-				"sublen": 100000000,
-				"param": 1
-			},
-			{
-				"name": "pSuccessful",
-				"order": 2,
-				"type": "kBoolean",
-				"subtype": 0,
+				"type": "kItemref",
+				"subtype": "",
 				"sublen": 0,
-				"param": 2
+				"param": 1
 			}
 		],
 		"lvardefs": [
@@ -63,7 +55,14 @@
 		"order": 5,
 		"clientexec": true,
 		"pvardefs": [
-
+			{
+				"name": "pError",
+				"order": 1,
+				"type": "kItemref",
+				"subtype": "",
+				"sublen": 0,
+				"param": 1
+			}
 		],
 		"lvardefs": [
 

@@ -1,2 +1,14 @@
 # Enter your initialization code here
 JavaScript:me = this;
+JavaScript:
+JavaScript:me.doCallback = function(pVar, pSuccessful) {
+JavaScript:    if (me.callbackInstance)
+JavaScript:        return me.callbackInstance.callMethod(pSuccessful ? '$completed' : '$error', pVar);
+JavaScript:
+JavaScript:    jOmnis.omnisInsts.forEach( function(instance) {
+JavaScript:        instance.forms.forEach( function(form) {
+JavaScript:            if (form && form.omnisclass === me.callbackRemoteForm)
+JavaScript:                form.callMethod(me.callbackMethod, pVar, pSuccessful);
+JavaScript:        });
+JavaScript:    });
+JavaScript:}
