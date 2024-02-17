@@ -10,7 +10,7 @@ JavaScript:function parseResponse(response) {
 JavaScript:    if (!response.ok)
 JavaScript:        throw new Error(`HTTP error status: ${reponse.status}`);
 JavaScript:
-JavaScript:    const contentType = response.headers.get('content-type');
+JavaScript:    const contentType = response.headers.get('Content-Type');
 JavaScript:
 JavaScript:    if (contentType.includes("application/json"))
 JavaScript:        return response.json();
@@ -24,7 +24,53 @@ JavaScript:    else
 JavaScript:        throw new Error(`Unsupported content type: ${contentType}`);
 JavaScript:}
 JavaScript:
-JavaScript:fetch(pURL)
+JavaScript:function buildHeaders(headers) {
+JavaScript:    // TODO
+JavaScript:}
+JavaScript:
+JavaScript:const fetchOptions = {
+JavaScript:    method: pMethod,
+JavaScript:    headers: new Headers(buildHeaders(pHeaders))
+JavaScript:};
+JavaScript:
+JavaScript:if (pPayload && !headers['Content-Type']) {
+JavaScript:    fetchOptions.headers.set('Content-Type', pContentType);
+JavaScript:}
+JavaScript:
+JavaScript:if (pPayload) {
+JavaScript:    switch (pContentType) {
+JavaScript:        case 'application/json':
+JavaScript:            fetchOptions.body = JSON.stringify(pPayload);
+JavaScript:            break;
+JavaScript:
+JavaScript:        case 'application/x-www-form-urlencoded':
+JavaScript:            fetchOptions.body = new URLSearchParams(pPayload);
+JavaScript:            break;
+JavaScript:
+JavaScript:        case 'multipart/form-data':
+JavaScript:            fetchOptions.headers.delete('Content-Type');
+JavaScript:            const formData = new FormData();
+JavaScript:            for (const name in pPayload)
+JavaScript:                formData.append(name, pPayload[name]);
+JavaScript:            fetchOptions.body = formData;
+JavaScript:            break;
+JavaScript:
+JavaScript:        case 'text/plain':
+JavaScript:            fetchOptions.body = pPayload;
+JavaScript:            break;
+JavaScript:
+JavaScript:        default:
+JavaScript:            fetchOptions.body = pPayload;
+JavaScript:    }
+JavaScript:}
+JavaScript:
+JavaScript:if ((pMethod === 'POST' || pMethod === 'PUT') && pPayload) {
+JavaScript:    // TODO: support more payloads
+JavaScript:    fetchOptions.body = pPayload;
+JavaScript:    fetchOptions.headers.set('Content-Type', 'application/json');
+JavaScript:}
+JavaScript:
+JavaScript:fetch(pURL, fetchOptions)
 JavaScript:.then(parseResponse)
 JavaScript:.then(data => {
 JavaScript:    if (shouldCallback())

@@ -75,6 +75,30 @@
 				"sublen": 100000000,
 				"param": 2,
 				"initval": "'GET'"
+			},
+			{
+				"name": "pHeaders",
+				"order": 3,
+				"type": "kRow",
+				"subtype": "",
+				"sublen": 0,
+				"param": 3
+			},
+			{
+				"name": "pPayload",
+				"order": 4,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 4
+			},
+			{
+				"name": "pContentType",
+				"order": 5,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 5
 			}
 		],
 		"lvardefs": [
