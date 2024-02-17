@@ -17,6 +17,14 @@ You can either use the callbacks details below, or inherit from `requests` and o
 To start making requests, use the `$fetch(cURL[, cMethod='GET'])` method.
 
 
+### Properties
+
+`autoConvertKnownTypes` Automatically converts known types to Omnis types, e.g. JS Object to Omnis Row, or JS Array to Omnis List. Defaults to **kTrue**.
+
+```
+Do requests.autoConvertKnownTypes.$assign(kTrue)
+```
+
 ### Callbacks
 
 `$setCallbackForm(cRemoteFormName, cMethodName)` instructs the object to callback the method passed in `cMethodName` on the remote form with the name passed in `cRemoteForm`.
