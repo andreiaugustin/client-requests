@@ -1,6 +1,12 @@
 # Enter your initialization code here
 JavaScript:me = this;
 JavaScript:
+JavaScript:me.version = '0.0.1';
+JavaScript:
+JavaScript:me.callbackMethod = '';
+JavaScript:me.callbackRemoteForm = '';
+JavaScript:me.callbackInstance = '';
+JavaScript:
 JavaScript:me.doCallback = function(pVar, pSuccessful) {
 JavaScript:    if (me.callbackInstance)
 JavaScript:        return me.callbackInstance.callMethod(pSuccessful ? '$completed' : '$error', pVar);

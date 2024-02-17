@@ -1,1 +1,1 @@
-Calculate callbackInstance as pInstance
+JavaScript:me.callbackInstance = pInstance;

@@ -1,2 +1,2 @@
-JavaScript:alert(`fetch() returned: ${pData.ip}`)
+OK message fetch returned {[pData.ip]}
 JavaScript:console.log(pData);

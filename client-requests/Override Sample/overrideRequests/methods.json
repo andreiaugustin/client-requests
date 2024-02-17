@@ -6,7 +6,7 @@
 			{
 				"name": "pData",
 				"order": 1,
-				"type": "kItemref",
+				"type": "kRow",
 				"subtype": "",
 				"sublen": 0,
 				"param": 1

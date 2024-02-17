@@ -1,2 +1,2 @@
-Calculate callbackMethod as pMethodName
-Calculate callbackRemoteForm as pRemoteFormName
+JavaScript:me.callbackMethod = pMethodName;
+JavaScript:me.callbackRemoteForm = pRemoteFormName;

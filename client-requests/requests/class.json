@@ -2,40 +2,19 @@
 	"classtype": "kRemoteObject",
 	"omnisversion": "11.0",
 	"omnisbuild": 110036149,
-	"internalversion": 47,
+	"internalversion": 72,
 	"cvardefs": [
 
 	],
 	"ivardefs": [
 		{
-			"name": "callbackInstance",
-			"order": 4,
-			"type": "kItemref",
-			"subtype": "",
-			"sublen": 0
-		},
-		{
-			"name": "callbackMethod",
-			"order": 3,
-			"type": "kCharacter",
-			"subtype": "kSimplechar",
-			"sublen": 100000000,
-			"initval": "''"
-		},
-		{
-			"name": "callbackRemoteForm",
-			"order": 2,
-			"type": "kCharacter",
-			"subtype": "kSimplechar",
-			"sublen": 100000000,
-			"initval": "''"
-		},
-		{
-			"name": "me",
-			"order": 1,
-			"type": "kItemref",
-			"subtype": "",
-			"sublen": 0
+			"name": "autoConvertKnownTypes",
+			"order": 5,
+			"type": "kBoolean",
+			"subtype": 0,
+			"sublen": 0,
+			"initval": "kTrue",
+			"desc": "Convert known types to Omnis types, e.g. JS Object to Omnis Row. Defaults to kTrue."
 		}
 	],
 	"properties": {
@@ -50,7 +29,7 @@
 		"editordata": "",
 		"external": false,
 		"issupercomponent": false,
-		"moddate": "2024-02-17 02:08:45",
+		"moddate": "2024-02-17 22:04:23",
 		"showascheckedout": false,
 		"userinfo": "",
 		"vcsrevision": 0,

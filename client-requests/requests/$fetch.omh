@@ -6,20 +6,26 @@ JavaScript:        return true;
 JavaScript:    return false;
 JavaScript:}
 JavaScript:
-JavaScript:function parseResponse(response) {
+JavaScript:function toRowOrList(pObjectOrArray) {
+JavaScript:    if (Array.isArray(pObjectOrArray))
+JavaScript:        return omnis_list.convertJavaScriptArrayToOmnisList(pObjectOrArray)
+JavaScript:    return omnis_list.convertJavaScriptObjectToOmnisRow(pObjectOrArray);
+JavaScript:}
+JavaScript:
+JavaScript:async function parseResponse(response) {
 JavaScript:    if (!response.ok)
-JavaScript:        throw new Error(`HTTP error status: ${reponse.status}`);
+JavaScript:        throw new Error(`HTTP error status: ${response.status}`);
 JavaScript:
 JavaScript:    const contentType = response.headers.get('Content-Type');
 JavaScript:
 JavaScript:    if (contentType.includes("application/json"))
-JavaScript:        return response.json();
+JavaScript:        return me.autoConvertKnownTypes ? toRowOrList(await response.json()) : await response.json();
 JavaScript:    else if (contentType.includes("text/html") || contentType.includes("text/plain"))
-JavaScript:        return response.text();
+JavaScript:        return await response.text();
 JavaScript:    else if (contentType.includes("form-data"))
-JavaScript:        return response.formData();
+JavaScript:        return await response.formData();
 JavaScript:    else if (contentType.includes("blob"))
-JavaScript:        return response.blob();
+JavaScript:        return await response.blob();
 JavaScript:    else
 JavaScript:        throw new Error(`Unsupported content type: ${contentType}`);
 JavaScript:}

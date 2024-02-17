@@ -11,7 +11,7 @@
 	},
 	{
 		"name": "$setCallbackForm",
-		"order": 2,
+		"order": 3,
 		"desc": "Inform the object to callback a named method on a named remote form (note: remote must be instantiated, otherwise you will miss the callback).",
 		"pvardefs": [
 			{
@@ -39,7 +39,7 @@
 	},
 	{
 		"name": "$callbackinst",
-		"order": 3,
+		"order": 4,
 		"pvardefs": [
 			{
 				"name": "pInstance",
@@ -56,7 +56,7 @@
 	},
 	{
 		"name": "$fetch",
-		"order": 4,
+		"order": 5,
 		"pvardefs": [
 			{
 				"name": "pURL",
@@ -107,7 +107,7 @@
 	},
 	{
 		"name": "$completed",
-		"order": 5,
+		"order": 6,
 		"desc": "Callback after successful $fetch() execution.",
 		"pvardefs": [
 			{
@@ -126,7 +126,7 @@
 	},
 	{
 		"name": "$error",
-		"order": 6,
+		"order": 7,
 		"desc": "Callback for errors encountered during fetch() execution.",
 		"pvardefs": [
 			{
