@@ -2,7 +2,7 @@
 	"classtype": "kRemoteObject",
 	"omnisversion": "11.0",
 	"omnisbuild": 110036149,
-	"internalversion": 72,
+	"internalversion": 79,
 	"cvardefs": [
 
 	],
@@ -29,7 +29,7 @@
 		"editordata": "",
 		"external": false,
 		"issupercomponent": false,
-		"moddate": "2024-02-17 22:04:23",
+		"moddate": "2024-02-18 16:15:23",
 		"showascheckedout": false,
 		"userinfo": "",
 		"vcsrevision": 0,

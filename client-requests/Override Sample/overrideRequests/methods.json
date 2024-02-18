@@ -6,9 +6,9 @@
 			{
 				"name": "pData",
 				"order": 1,
-				"type": "kRow",
-				"subtype": "",
-				"sublen": 0,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
 				"param": 1
 			}
 		],

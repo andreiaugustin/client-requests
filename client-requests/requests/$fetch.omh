@@ -12,22 +12,39 @@ JavaScript:        return omnis_list.convertJavaScriptArrayToOmnisList(pObjectOr
 JavaScript:    return omnis_list.convertJavaScriptObjectToOmnisRow(pObjectOrArray);
 JavaScript:}
 JavaScript:
+JavaScript:function formDataToObject(pFormData) {
+JavaScript:    const obj = {};
+JavaScript:    pFormData.forEach((value, key) => {
+JavaScript:        obj[key] = value;
+JavaScript:    });
+JavaScript:    return obj;
+JavaScript:}
+JavaScript:
 JavaScript:async function parseResponse(response) {
 JavaScript:    if (!response.ok)
 JavaScript:        throw new Error(`HTTP error status: ${response.status}`);
 JavaScript:
 JavaScript:    const contentType = response.headers.get('Content-Type');
 JavaScript:
-JavaScript:    if (contentType.includes("application/json"))
-JavaScript:        return me.autoConvertKnownTypes ? toRowOrList(await response.json()) : await response.json();
-JavaScript:    else if (contentType.includes("text/html") || contentType.includes("text/plain"))
+JavaScript:    if (!me.autoConvertKnownTypes)
+JavaScript:        return await response.arrayBuffer();
+JavaScript:
+JavaScript:    if (contentType.startsWith('application/json')
+JavaScript:        || /application\/[a-zA-Z.-]+\+json/.test(contentType))
+JavaScript:        return toRowOrList(await response.json());
+JavaScript:    else if (contentType.startsWith("text/"))
 JavaScript:        return await response.text();
 JavaScript:    else if (contentType.includes("form-data"))
-JavaScript:        return await response.formData();
-JavaScript:    else if (contentType.includes("blob"))
+JavaScript:        return toRowOrList(formDataToObject(await response.formData()));
+JavaScript:    else if (contentType.startsWith("image/")
+JavaScript:            || contentType.startsWith("audio/")
+JavaScript:            || contentType.startsWith('video/')
+JavaScript:            || contentType.startsWith('application/pdf')
+JavaScript:            || contentType.startsWith('application/zip')
+JavaScript:            || contentType.startsWith('application/gzip'))
 JavaScript:        return await response.blob();
-JavaScript:    else
-JavaScript:        throw new Error(`Unsupported content type: ${contentType}`);
+JavaScript:
+JavaScript:    return await response.arrayBuffer(); // Fallback on ArrayBuffer
 JavaScript:}
 JavaScript:
 JavaScript:function buildHeaders(headers) {

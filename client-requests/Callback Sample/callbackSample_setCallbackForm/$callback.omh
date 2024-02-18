@@ -1,5 +1,8 @@
 If pSuccessful
-	JavaScript:alert(`fetch() returned: ${pData.ip}`)
+	JavaScript:const decoder = new TextDecoder('utf-8');
+	JavaScript:const jsonString = decoder.decode(pData);
+	JavaScript:const obj = JSON.parse(jsonString);
+	JavaScript:alert(`fetch() returned: ${obj.ip}`)
 	JavaScript:console.log(pData);
 Else
 	JavaScript:alert(`fetch() error: ${pData}`)

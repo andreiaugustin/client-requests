@@ -1,1 +1,1 @@
-Do requests.$fetch('https://api.ipify.org?format=json')
+Do requests.$fetch('https://api.ipify.org')
